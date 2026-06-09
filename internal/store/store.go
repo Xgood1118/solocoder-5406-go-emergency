@@ -288,7 +288,7 @@ func (s *Store) AddToQueue(dispatchID string, isVIP bool) {
 			}
 			idx = i + 1
 		}
-		s.DispatchQueue = append(s.DispatchQueue[:idx], append([]string{dispatchID}, s.DispatchQueue[idx:]...)
+		s.DispatchQueue = append(s.DispatchQueue[:idx], append([]string{dispatchID}, s.DispatchQueue[idx:]...)...)
 	} else {
 		s.DispatchQueue = append(s.DispatchQueue, dispatchID)
 	}
