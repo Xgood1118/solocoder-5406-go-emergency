@@ -66,13 +66,13 @@ func FindNearestVehicles(lat, lon float64, illnessType models.IllnessType, limit
 }
 
 func FindNearestVehiclesAllTypes(lat, lon float64, limit int) []DispatchCandidate {
-	var allTypes := []models.VehicleType{
+	allTypes := []models.VehicleType{
 		models.VehicleTypeSevere,
 		models.VehicleTypeNormal,
 		models.VehicleTypeNeonatal,
 	}
 
-	var allCandidates := make(map[models.VehicleType][]DispatchCandidate)
+	allCandidates := make(map[models.VehicleType][]DispatchCandidate)
 	for _, vType := range allTypes {
 		vehicles := store.GlobalStore.ListVehiclesByTypeAndStatus(vType, models.VehicleStatusStandby)
 		var candidates []DispatchCandidate
